@@ -1,0 +1,88 @@
+d:assets:assets:0:application/unknown:1
+d:images:images:0:application/unknown:1
+i:images/arrow icon.png:images/arrow icon-b4f1cb736565cce17125a3d6cd79d8b5.png:40557:image/png:1
+i:images/azazon_death.png:images/azazon_death-687ce457b2e4fb76c09354188146b48a.png:48636:image/png:1
+i:images/azazon_walk1.png:images/azazon_walk1-f8ce7efff4ac4dbc64866a8bdcddca73.png:52925:image/png:1
+i:images/azazon_walk2.png:images/azazon_walk2-12b3ffd376852db4fbb4240313e47dcb.png:50568:image/png:1
+i:images/bear fish struggle 0.png:images/bear fish struggle 0-088f97a6a11be06f0c48af5c57ccf3b5.png:85557:image/png:1
+i:images/bear fish struggle 1.png:images/bear fish struggle 1-747d9110dbf64af0736a2543d852c127.png:87835:image/png:1
+i:images/bear idle 0.png:images/bear idle 0-71aa7098fa5a45d0929f4ef7da48d258.png:80431:image/png:1
+i:images/bear idle 1.png:images/bear idle 1-955cd02180e7b60c0946744804adc1f6.png:80750:image/png:1
+i:images/bear walk 0.png:images/bear walk 0-73f283158cb49a2afd574439cc8dccd9.png:81076:image/png:1
+i:images/bear walk 1.png:images/bear walk 1-e4dfb1a74fcadaa4710b40619fab5745.png:80207:image/png:1
+i:images/black.png:images/black-b28488b220094a1a48f534d82a6f6633.png:4742:image/png:1
+i:images/brown1.png:images/brown1-6affec1caa8c0581e9f6bce0f56a8b8f.png:125:image/png:1
+i:images/brown2.png:images/brown2-0721ec66d1c023f64e3c5507d5eaa9c6.png:124:image/png:1
+i:images/cat idle 0.png:images/cat idle 0-a9387967fb90a1b4b4fa1d0f4cf8be3e.png:63557:image/png:1
+i:images/cat idle 2.png:images/cat idle 2-0406a8ecf0c38fd4fd1debb969a84f5b.png:62540:image/png:1
+i:images/cat walk 0.png:images/cat walk 0-4e9111b639d3df0bd4445d340eb74376.png:69920:image/png:1
+i:images/cat walk 1.png:images/cat walk 1-46fb991929cf4f6e8c56ffd2beb500fe.png:67527:image/png:1
+i:images/cat_attack1.png:images/cat_attack1-cc10d372fa1fa1bb6eda4f4320ff1ccf.png:60443:image/png:1
+i:images/cat_attack2.png:images/cat_attack2-db087dcf747ca5d2878432e18aed89f7.png:61965:image/png:1
+i:images/cat_idle1.png:images/cat_idle1-aca3039a192a56f17e5d8254889c9dcd.png:43572:image/png:1
+i:images/cat_idle2.png:images/cat_idle2-24a18e0c1f77e208b7a467c9b47209f7.png:44096:image/png:1
+i:images/cat_projectile.png:images/cat_projectile-bc70abf34cf1f2e1755c6c53ceb7c2a3.png:44412:image/png:1
+i:images/close button.png:images/close button-fe44de89dca99a5db7ccb7e8dfcc1753.png:57168:image/png:1
+i:images/coin.png:images/coin-9babdbc35f77b218914ba277f38aca04.png:73155:image/png:1
+i:images/dog_attack1.png:images/dog_attack1-5997af824a17e94381a9533d18953547.png:39921:image/png:1
+i:images/dog_attack2.png:images/dog_attack2-1ae33f658bb5ffb0aa0e97db6e075fa1.png:41876:image/png:1
+i:images/dog_idle1.png:images/dog_idle1-fa49b45737e12f449690ddc3395aca90.png:34043:image/png:1
+i:images/dog_idle2.png:images/dog_idle2-47445661a46c6c04f8a69ae5037416ca.png:33719:image/png:1
+i:images/dog_projectile.png:images/dog_projectile-f411a6dc326169228776653428d0a442.png:44379:image/png:1
+i:images/gunguy_attack1.png:images/gunguy_attack1-a51acee6a653305ab63f1d729b43f41c.png:47760:image/png:1
+i:images/gunguy_attack2.png:images/gunguy_attack2-85887425b74878170ed9e0afce7dfb49.png:47555:image/png:1
+i:images/gunguy_idle1.png:images/gunguy_idle1-aec2ad2e69233222f66cba0b76a2302c.png:46987:image/png:1
+i:images/gunguy_idle2.png:images/gunguy_idle2-6c0589633c9e44ee3e97dc4b86d622a1.png:46751:image/png:1
+i:images/gunguy_projectile.png:images/gunguy_projectile-563b3467cadce2bb49986536d97156ca.png:19557:image/png:1
+i:images/heart0.png:images/heart0-e8c3b96f5070d8745d19dd91971171ca.png:45004:image/png:1
+i:images/logo.png:images/logo-8676e36ac584f667b4831de9f0f3f80f.png:109682:image/png:1
+i:images/lvl1.png:images/lvl1-c0fef0c21454880c5c8ee5414441fe6f.png:137137:image/png:1
+i:images/lvl1invalid.png:images/lvl1invalid-6e3ba80bff6b31eb56bdc055c2a1b0c4.png:50905:image/png:1
+i:images/lvl2.png:images/lvl2-dc6672d2dda5ee14adf73f82a87d9d69.png:120917:image/png:1
+i:images/lvl2invalid.png:images/lvl2invalid-cbd6c2730022dea28526cb059fd87e5b.png:61957:image/png:1
+i:images/lvl3.png:images/lvl3-53957fb0dbd00947c983eb76705d922f.png:136208:image/png:1
+i:images/lvl3invalid.png:images/lvl3invalid-bf9ed9b2f87b16fd5129c5793b3bfdd0.png:71053:image/png:1
+i:images/mailman_death.png:images/mailman_death-e14dfcfa23551ff544bd75037b267d94.png:47524:image/png:1
+i:images/mailman_walk1.png:images/mailman_walk1-6cefcf8fdc5543f55018bdc2ca96b91b.png:49292:image/png:1
+i:images/mailman_walk2.png:images/mailman_walk2-dc218806bfc86476fd118942541deffc.png:48429:image/png:1
+i:images/menu icon.png:images/menu icon-47bb41761648c73a57d0d9435c278ee5.png:83812:image/png:1
+i:images/pigeon_death.png:images/pigeon_death-ed6f026b25a46c3dbb9f516e800dfd17.png:27652:image/png:1
+i:images/pigeon_walk1.png:images/pigeon_walk1-1828f4d62e25717170e6e1b3121f6938.png:34996:image/png:1
+i:images/pigeon_walk2.png:images/pigeon_walk2-d52a8cff50849b33ce89946885bf6b37.png:37032:image/png:1
+i:images/rabbit_attack1.png:images/rabbit_attack1-f74e1938a0e544be1e2e9d53a4adf53d.png:43016:image/png:1
+i:images/rabbit_attack2.png:images/rabbit_attack2-6358c5e8bab20c59bd2fe2c42601cd0f.png:40602:image/png:1
+i:images/rabbit_idle1.png:images/rabbit_idle1-393339cf322485bb3972b6c766facf5c.png:40436:image/png:1
+i:images/rabbit_idle2.png:images/rabbit_idle2-4e44b4ab92ef4d70e200f35019eb973b.png:39485:image/png:1
+i:images/rabbit_projectile.png:images/rabbit_projectile-917e2116500df89cca98b976bd2b2fd5.png:33772:image/png:1
+i:images/range.png:images/range-49ee93f81725b63c672ca22ee5a2cb8e.png:3118:image/png:1
+i:images/santa_death.png:images/santa_death-2daffe665acd55ec71397dc53fc7cb15.png:64038:image/png:1
+i:images/santa_walk1.png:images/santa_walk1-b254e9a4476409a3ce6a7da20d35c4ae.png:66193:image/png:1
+i:images/santa_walk2.png:images/santa_walk2-479d929d9d40564f751e077ea2e72baf.png:65051:image/png:1
+i:images/Shop Tray.png:images/Shop Tray-55a22fc887e074d3256715728313add4.png:13267:image/png:1
+i:images/signpost.png:images/signpost-1f2178953f179983f91e4aa1d6ab401e.png:159681:image/png:1
+i:images/splash.png:images/splash-55a5211ade97dd2753bed651a8661ded.png:258067:image/png:1
+i:images/stork_death.png:images/stork_death-4479925a4f43bdde306119b2b7786ddb.png:55688:image/png:1
+i:images/stork_walk1.png:images/stork_walk1-e0c6649ef126623f20d7924d5623247f.png:36535:image/png:1
+i:images/stork_walk2.png:images/stork_walk2-bdf5b61953c5ba248aac1d91aa680037.png:35602:image/png:1
+i:images/turtle_attack1.png:images/turtle_attack1-28ff28d2e9731cfc4545a80bfd0e4161.png:45682:image/png:1
+i:images/turtle_attack2.png:images/turtle_attack2-f561a64011594e13e402be9a4989bcb2.png:47537:image/png:1
+i:images/turtle_idle1.png:images/turtle_idle1-250cfbc19af9b96a360e3fd28e5d5cd4.png:45761:image/png:1
+i:images/turtle_idle2.png:images/turtle_idle2-33a1c7097e6cb752878c732bc57acfa0.png:44576:image/png:1
+i:images/turtle_nest.png:images/turtle_nest-a1610c01df8aff46978f0c684d512e1a.png:104762:image/png:1
+i:images/turtle_projectile.png:images/turtle_projectile-dd8143be03f582715086987902d7809d.png:38540:image/png:1
+d:music:music:0:application/unknown:1
+a:music/level1.wav:music/level1-6b221aa3dc049eb1d3a5c8cfa439cd36.wav:13098822:audio/x-wav:1
+a:music/waiting.wav:music/waiting-b07bb2c3510fa7bed67e18c58dd1e0c5.wav:7876878:audio/x-wav:1
+d:sounds:sounds:0:application/unknown:1
+a:sounds/die.mp3:sounds/die-f5c061a5d3bc72ea431e71bcf9614460.mp3:5225:application/unknown:1
+a:sounds/gameover.wav:sounds/gameover-e050e7d5ad878077c51fd62feecf9904.wav:706330:audio/x-wav:1
+a:sounds/hit.mp3:sounds/hit-8fd58f4174cb4d2f54b5752bdc4fd764.mp3:26880:application/unknown:1
+a:sounds/shoot.wav:sounds/shoot-eff30a1c46208ac4a19f3344f5d9dbc0.wav:194784:audio/x-wav:1
+t:com/badlogic/gdx/graphics/g3d/particles/particles.fragment.glsl:particles.fragment-b90524761fdf09b0a836056d590c30b8.glsl:820:application/unknown:1
+t:com/badlogic/gdx/graphics/g3d/particles/particles.vertex.glsl:particles.vertex-f25b8b2fae10b9bfa09bfdd484923148.glsl:2886:application/unknown:1
+t:com/badlogic/gdx/graphics/g3d/shaders/default.fragment.glsl:default.fragment-e1c018bd48044c8b67c7bbc53145e540.glsl:5874:application/unknown:1
+t:com/badlogic/gdx/graphics/g3d/shaders/default.vertex.glsl:default.vertex-28b7e77ea3f282ebd5b066ba256692c3.glsl:9096:application/unknown:1
+t:com/badlogic/gdx/graphics/g3d/shaders/depth.fragment.glsl:depth.fragment-8341d5ce47fc398da575c9e294b6821b.glsl:869:application/unknown:1
+t:com/badlogic/gdx/graphics/g3d/shaders/depth.vertex.glsl:depth.vertex-98a450f1f747c05eedb7122779187316.glsl:2931:application/unknown:1
+t:com/badlogic/gdx/utils/lsans-15.fnt:lsans-15-5143ae9583bc43b1084f98062e054ae8.fnt:17711:application/unknown:1
+i:com/badlogic/gdx/utils/lsans-15.png:lsans-15-afe63790f9c73ea9a111fd9843835d21.png:14652:image/png:1
