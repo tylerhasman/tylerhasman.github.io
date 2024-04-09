@@ -220,8 +220,7 @@ footer {
     min-height: 300px;
     max-height: 1080px;
     background: url(../images/lead-bg.jpg);
-    background-position-y: -150px;
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     padding: 15px;
     overflow: hidden;
