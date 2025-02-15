@@ -219,7 +219,7 @@ footer {
     height: 45vh;
     min-height: 300px;
     max-height: 1080px;
-    background: url(../images/lead-bg.jpg);
+    background: url(../images/karazhan.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     padding: 15px;
@@ -259,7 +259,7 @@ footer {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(33, 125, 187, 0.8);
+    background: rgba(33, 125, 187, 0.0);
     z-index: 1;
 }
 #lead-down {
@@ -465,6 +465,11 @@ footer {
     overflow: hidden;
     background: #fff;
     border-radius: 4px;
+}
+.project img {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 .project-image {
     float: left;
