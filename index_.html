@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <title></title>
+    <style>
+        @font-face {
+            font-family: Determination;
+            src: url('fonts/DeterminationMono.ttf');
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: Determination;
+            font-size: 2.5pc;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            image-rendering: pixelated;
+        }
+
+        .box {
+            border: 3px solid white;
+            padding: 400px 300px;
+            /* your original padding */
+            border-radius: 1px;
+            position: relative;
+            width: fit-content;
+            /* adjust width to content */
+            height: fit-content;
+            /* adjust height to content */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Container inside .box to create top 25% / bottom 75% split */
+        .content-wrapper {
+            position: absolute;
+            top: 3px;
+            /* inside the border */
+            left: 3px;
+            right: 3px;
+            bottom: 3px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-section {
+            flex: 0 0 20%;
+            border-bottom: 2px solid white;
+            display: flex;
+            align-items: stretch;
+            position: relative;
+        }
+
+        /* Vertical divider on left side of top section */
+        .vertical-divider {
+            width: 150px;
+            border: 2px solid white;
+            margin-bottom: 2px;
+            margin-right: 15px;
+            /* spacing between divider and rest of top section */
+        }
+
+        .top-content {
+            flex: 1;
+            text-align: left;
+            /* This is where you could add content beside the vertical divider */
+        }
+
+        .bottom-section {
+            flex: 1 1 75%;
+            display: flex;
+            justify-content: left;
+            margin: 15px;
+            margin-top: 35px;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .font-small {
+            font-size: 1.5pc;
+        }
+
+        .font-medium {
+            font-size: 2.5pc;
+        }
+
+        .font-large {
+            font-size: 3.5pc;
+        }
+
+        .inlined-img {
+            display: inline-block;
+            /* keeps it inline with text */
+            height: 1em;
+            /* roughly the same height as text */
+            vertical-align: middle;
+            /* aligns image nicely with text */
+            margin-left: 5px;
+            /* small gap between text and image */
+        }
+
+        .inlined-img-beeg {
+            display: inline-block;
+            /* keeps it inline with text */
+            height: 1.5em;
+            /* roughly the same height as text */
+            vertical-align: middle;
+            /* aligns image nicely with text */
+            margin-left: 5px;
+            /* small gap between text and image */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <div class="content-wrapper">
+            <div class="top-section">
+                <div class="vertical-divider">
+                    <img 
+                    src="images/me.png" 
+                    style="width:100%;height:100%;" 
+                    onmouseover="this.src='images/also_me.png'" 
+                    onmouseout="this.src='images/me.png'" 
+                    />
+                </div>
+                <div class="top-content">
+                    <div class="font-medium" style="margin-left: -4px; padding-bottom: 12px;">
+                        tyler hasman
+                    </div>
+                    <div class="font-small">
+                        software engineer at
+                        <img class="inlined-img" src="images/blizzard.png" />
+                    </div>
+                    <div class="font-small">
+                        from vancouver
+                        <img class="inlined-img" src="images/canada.png" />
+                    </div>
+                    <div class="font-small">
+                        living in
+                        <img class="inlined-img" src="images/cali.png" />
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-section">
+                <div class="font-medium">
+                    me
+                </div>
+                <div class="font-small">
+                    * regular fellow
+                </div>
+                <div class="font-small">
+                    * 
+                </div>
+                <div class="font-small">
+                    * 
+                </div>
+                <div class="font-medium" style="padding-top: 35px;">
+                    work
+                </div>
+                <div class="font-small">
+                    * currently working on <img class="inlined-img-beeg" src="images/mop.png" />
+                </div>
+                <div class="font-small">
+                    * previously at <img class="inlined-img" src="images/offworld.png" />
+                </div>
+                <div class="font-medium" style="padding-top: 40px;">
+                    projects
+                </div>
+                <div class="font-small">
+                    
+                    <a style="text-decoration: none;" href="https://playwizards.net" target="_blank">
+                    * 
+                        <img class="inlined-img-beeg" src="images/wizards_teeny.png" />
+                    </a> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
