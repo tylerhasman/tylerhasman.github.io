@@ -1,269 +1,824 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
-
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tyler Hasman</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #08090e;
+            --surface: #0f1117;
+            --surface-2: #161b27;
+            --surface-3: #1e2435;
+            --border: rgba(255,255,255,0.07);
+            --border-hover: rgba(255,255,255,0.15);
+            --accent: #4f8ef5;
+            --accent-glow: rgba(79,142,245,0.12);
+            --gold: #f0c040;
+            --gold-glow: rgba(240,192,64,0.12);
+            --text: #e8eaf0;
+            --text-muted: #8892a4;
+            --text-dim: #404858;
+            --radius: 16px;
+            --radius-sm: 8px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            padding: 16px;
+        }
+        .nav-pills {
+            display: flex;
+            gap: 2px;
+            background: rgba(15,17,23,0.85);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 5px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .nav-pills a {
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .nav-pills a:hover {
+            color: var(--text);
+            background: rgba(255,255,255,0.07);
+        }
+
+        /* ── HERO ── */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 20px 80px;
+        }
+        #hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 90% 60% at 50% -10%, rgba(79,142,245,0.14) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 15% 80%, rgba(139,92,246,0.07) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 40% at 85% 90%, rgba(79,142,245,0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        #hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 200px;
+            background: linear-gradient(to bottom, transparent, var(--surface));
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 760px;
+        }
+        .hero-content h1 {
+            font-size: clamp(3.5rem, 9vw, 6.5rem);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+        .hero-content h1 .accent { color: var(--accent); }
+        .hero-content h2 {
+            font-size: clamp(1rem, 2.5vw, 1.35rem);
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            letter-spacing: -0.01em;
+        }
+        .hero-links {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .hero-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 24px;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            letter-spacing: -0.01em;
+        }
+        .hero-link img { width: 16px; height: 16px; object-fit: contain; }
+        .hero-link.primary {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 0 0 0 rgba(79,142,245,0);
+        }
+        .hero-link.primary img { filter: brightness(0) invert(1); }
+        .hero-link.primary:hover {
+            background: #6ba3f7;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(79,142,245,0.3);
+        }
+        .hero-link.secondary {
+            background: var(--surface-2);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        .hero-link.secondary img { filter: brightness(0) invert(0.7); }
+        .hero-link.secondary:hover {
+            background: var(--surface-3);
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        /* ── SECTION COMMON ── */
+        section { padding: 100px 24px; }
+        .section-inner { max-width: 1120px; margin: 0 auto; }
+        .section-label {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--text);
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 0.97rem;
+            max-width: 520px;
+            margin-bottom: 56px;
+            line-height: 1.65;
+        }
+
+        /* ── ABOUT ── */
+        #about {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+        .about-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .about-photo {
+            width: 100%;
+            border-radius: var(--radius);
+            display: block;
+            border: 1px solid var(--border);
+        }
+        .about-text .section-label { display: block; }
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            line-height: 1.8;
+            font-size: 0.97rem;
+        }
+        .about-text p:last-child { margin-bottom: 0; }
+        .about-text a { color: var(--accent); text-decoration: none; }
+        .about-text a:hover { text-decoration: underline; }
+        .about-text strong { color: var(--text); font-weight: 600; }
+
+        /* ── PROFESSIONAL ── */
+        #professional { background: var(--bg); }
+        .pro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .pro-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+        }
+        .pro-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+        }
+        .pro-banner {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 36px;
+            position: relative;
+            overflow: hidden;
+        }
+        .pro-banner.squad-banner {
+            background: url('images/squad_background.jpg') center/cover no-repeat;
+        }
+        .pro-banner.squad-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+        }
+        .pro-banner.wow-banner {
+            background: url('images/wow_classic_background.webp') center/cover no-repeat;
+        }
+        .pro-banner.wow-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+        }
+        .pro-banner img {
+            max-height: 120px;
+            max-width: 80%;
+            object-fit: contain;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 4px 24px rgba(0,0,0,0.8));
+        }
+        .pro-company-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background: var(--surface-2);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .pro-company-bar img {
+            height: 20px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(0.6);
+        }
+        .pro-company-name {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .pro-body { padding: 28px; }
+        .pro-body h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+        .pro-body p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .chip {
+            display: inline-block;
+            padding: 4px 11px;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+        .chip-blue {
+            background: rgba(79,142,245,0.1);
+            border: 1px solid rgba(79,142,245,0.22);
+            color: #7aabf8;
+        }
+        .chip-gold {
+            background: rgba(240,192,64,0.1);
+            border: 1px solid rgba(240,192,64,0.22);
+            color: var(--gold);
+        }
+
+        /* ── PROJECTS ── */
+        #projects {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+        .capsule {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+        }
+        .capsule:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 52px rgba(0,0,0,0.55);
+        }
+        .capsule:hover .capsule-media video,
+        .capsule:hover .capsule-media img {
+            transform: scale(1.04);
+        }
+        .capsule-media {
+            height: 190px;
+            overflow: hidden;
+            position: relative;
+            background: #06070d;
+            flex-shrink: 0;
+        }
+        .capsule-media video,
+        .capsule-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.2, 0, 0, 1);
+        }
+        .capsule-logo {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            z-index: 2;
+        }
+        .capsule-logo img {
+            height: 32px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 10px rgba(0,0,0,0.9));
+        }
+        .capsule-body {
+            padding: 18px 20px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .capsule-body h3 {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+            letter-spacing: -0.01em;
+        }
+        .capsule-meta {
+            font-size: 0.72rem;
+            color: var(--text-dim);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .capsule-body p {
+            font-size: 0.83rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            flex: 1;
+            margin-bottom: 14px;
+        }
+        .capsule-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-bottom: 14px;
+        }
+        .tag {
+            padding: 2px 7px;
+            background: var(--surface-3);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.67rem;
+            font-weight: 700;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .capsule-links {
+            display: flex;
+            gap: 6px;
+            margin-top: auto;
+        }
+        .capsule-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 13px;
+            border-radius: 6px;
+            font-size: 0.77rem;
+            font-weight: 600;
+            text-decoration: none;
+            background: var(--surface-3);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            transition: all 0.15s;
+            letter-spacing: -0.01em;
+        }
+        .capsule-link:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+            padding: 40px 24px;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+        .footer-links a:hover { color: var(--accent); }
+        footer p {
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .pro-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; gap: 36px; }
+            .about-visual { flex-direction: row; align-items: flex-start; }
+            .about-photo { max-width: 180px; }
+            .about-gif-wrap { flex: 1; }
+            section { padding: 72px 18px; }
+        }
+        @media (max-width: 600px) {
+            .projects-grid { grid-template-columns: 1fr; }
+            .about-visual { flex-direction: column; }
+            .about-photo { max-width: 100%; }
+            .nav-pills a { padding: 5px 12px; font-size: 0.8rem; }
+            .hero-link { padding: 9px 18px; font-size: 0.83rem; }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- End #mobile-menu-toggle -->
-
-    <div id="lead">
-        <div id="lead-content">
-            <h1>Tyler Hasman</h1>
-            <h2>Software Engineer</h2>
-            <a target="_blank" href="https://github.com/tylerhasman" style="padding: 15px;"><img style="width: 75px;"
-                    src="images/github.png" /></a>
-            <a target="_blank" href="mailto:tylerhasman10@hotmail.com" style="padding: 15px;"><img style="width: 75px;"
-                    src="images/email.png" /></a>
-            <a target="_blank" href="files/Resume.pdf" style="padding: 15px;"><img style="width: 75px;"
-                    src="images/resume.png" /></a>
+    <nav>
+        <div class="nav-pills">
+            <a href="#about">About</a>
+            <a href="#professional">Work</a>
+            <a href="#projects">Projects</a>
         </div>
-        <!-- End #lead-content -->
+    </nav>
 
-        <div id="lead-overlay"></div>
-        <!-- End #lead-down -->
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Tyler <span class="accent">Hasman</span></h1>
+            <h2>Computer Graphics &middot; Game Development &middot; Engine Creation</h2>
+            <div class="hero-links">
+                <a class="hero-link primary" href="https://github.com/tylerhasman" target="_blank">
+                    <img src="images/github.png" alt=""> GitHub
+                </a>
+                <a class="hero-link secondary" href="mailto:tylerhasman10@hotmail.com">
+                    <img src="images/email.png" alt=""> Email
+                </a>
+                <a class="hero-link secondary" href="files/Resume.pdf" target="_blank">
+                    <img src="images/resume.png" alt=""> Resume
+                </a>
+            </div>
+        </div>
+    </section>
 
-    </div>
-
-
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h2 class="heading">About Me</h2>
-
-                    <a href="https://zedotagger.tumblr.com/post/119883300135/been-working-on-dark-souls-sprites-again-not" target="_blank"><img src='images/solaire.gif' alt='Solaire of Astora' /></a>
-                    
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="section-inner">
+            <div class="about-grid">
+                <div class="about-visual">
+                    <img class="about-photo" src="images/me.png" alt="Tyler Hasman" />
+                    <div class="about-gif-wrap">
+                        <a href="https://zedotagger.tumblr.com/post/119883300135/been-working-on-dark-souls-sprites-again-not" target="_blank">
+                            <img src="images/solaire.gif" alt="Solaire of Astora" />
+                        </a>
+                    </div>
                 </div>
-                <div class="col-md-8">
+                <div class="about-text">
+                    <span class="section-label">About Me</span>
+                    <h2 class="section-title">Hey, I'm Tyler</h2>
                     <p>
-                        Hello!<br><br>
-
-                        <!-- I am currently in my fourth year of study at The University of British Columbia studying Computer Science. -->
-                        I graduated from The University of British Columbia with a Bachelors of Science in Computer Science in December 2023.
-                        I took a gap year after Highschool and lived in Kyoto, Japan for one year. I lived nearby the most popular tourist stop in the world <a href="https://www.japan-guide.com/e/e3915.html">Fushimi Inari</a>.
-                        I'm a huge supporter of people taking time off after highschool. I felt it gave me time to figure out who I was and what I wanted.
-
-                        <br><br>
-                        My main interests of study are computer graphics, game development, and game engine creation. My favorite games are Dark Souls, Persona 5, Skyrim, Portal 2, Undertale, and World of Warcraft Classic.
-
+                        I graduated from The University of British Columbia with a Bachelor of Science in Computer Science in December 2023.
+                    </p>
+                    <p>
+                        I took a gap year after high school and lived in Kyoto, Japan for a year — just a short walk from <a href="https://www.japan-guide.com/e/e3915.html" target="_blank">Fushimi Inari</a>, the most visited tourist spot in the world. It gave me the time and space to figure out who I was and what I actually wanted, and I'm a big supporter of others doing the same.
+                    </p>
+                    <p>
+                        My main interests are <strong>computer graphics</strong>, <strong>game development</strong>, and <strong>game engine creation</strong>. My favorite games are Dark Souls, Persona 5, Skyrim, Portal 2, Undertale, and World of Warcraft Classic.
                     </p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div id="projects" class="background-alt">
-        <h2 class="heading">Projects</h2>
-        <div class="container">
-            <div class="row">
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <div class="video-crop">
-                            <video style="margin-left: -50px;height: 330px;" autoplay muted loop>
-                                <source src="images/wizards_preview.mp4" type="video/mp4">
-                            </video>
+    <!-- PROFESSIONAL WORK -->
+    <section id="professional">
+        <div class="section-inner">
+            <span class="section-label">Professional</span>
+            <h2 class="section-title">Industry Work</h2>
+            <p class="section-desc">Games I've had the privilege of working on professionally.</p>
+            <div class="pro-grid">
+
+                <!-- Squad -->
+                <div class="pro-card">
+                    <div class="pro-banner squad-banner">
+                        <img src="images/squad.png" alt="Squad" />
+                    </div>
+                    <div class="pro-company-bar">
+                        <img src="images/offworld.png" alt="Offworld Industries" />
+                        <span class="pro-company-name">Offworld Industries</span>
+                    </div>
+                    <div class="pro-body">
+                        <h3>Squad</h3>
+                        <p>
+                            A large-scale tactical military FPS built around teamwork, communication, and realistic combined-arms combat. Contributed to gameplay systems and tooling for this hardcore mil-sim title.
+                        </p>
+                        <div class="chips">
+                            <span class="chip chip-blue">Tactical FPS</span>
+                            <span class="chip chip-blue">Mil-Sim</span>
+                            <span class="chip chip-blue">Unreal Engine</span>
                         </div>
                     </div>
-
-                    <div class="project-info">
-                        <img class="project-logo" src="images/wizards_logo.png" />
-                        <p>
-                            Released on Steam January 15th, 2021
-                        </p>
-                        <p>
-                            Online Turn-Based Strategy Game created in Java with the <a
-                                href="https://libgdx.com/">LibGDX Framework</a>.
-                            Uses MySQL and <a target="_blank" href="https://redis.io/">Redis</a> for backend. Game
-                            servers are hosted to make it easy for players
-                            to play together.
-                        </p>
-                        <a target="_blank" href="https://playwizards.net">Check It Out</a>
-                    </div>
                 </div>
 
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <div class="video-crop">
-                            <video id="cyber-video" style="margin-left: -100px;height: 330px;" autoplay muted loop>
-                                <source src="images/Eggly.mp4" type="video/mp4">
-                            </video>
+                <!-- World of Warcraft Classic -->
+                <div class="pro-card">
+                    <div class="pro-banner wow-banner">
+                        <img src="images/World_of_Warcraft_Classic_logo.png" alt="World of Warcraft Classic" />
+                    </div>
+                    <div class="pro-company-bar">
+                        <img src="images/blizzard.png" alt="Blizzard Entertainment" />
+                        <span class="pro-company-name">Blizzard Entertainment</span>
+                    </div>
+                    <div class="pro-body">
+                        <h3>World of Warcraft Classic</h3>
+                        <p>
+                            Worked across multiple releases of the beloved WoW Classic line, spanning six major versions of the game.
+                        </p>
+                        <div class="chips">
+                            <span class="chip chip-gold">Vanilla</span>
+                            <span class="chip chip-gold">The Burning Crusade</span>
+                            <span class="chip chip-gold">Wrath of the Lich King</span>
+                            <span class="chip chip-gold">Season of Discovery</span>
+                            <span class="chip chip-gold">Cataclysm Classic</span>
+                            <span class="chip chip-gold">Mists of Pandaria Classic</span>
                         </div>
                     </div>
-
-                    <div class="project-info">
-                        <h3>Eggly Buddies</h3>
-                        <p>
-                            Tamagotchi-inspired game made in C++ with SDL. Created for CPSC 427 (Video Game Programming) at UBC.
-                        </p>
-                        <a target="_blank" href="https://www.youtube.com/watch?v=V4XIK4Y5kTI">Trailer</a>
-                    </div>
                 </div>
 
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <div class="video-crop">
-                            <video id="cyber-video" style="margin-left: -100px;height: 330px;" onload="document.getElementById('cyber-video').playbackRate = 0.5;" autoplay muted loop>
-                                <source src="images/cyber.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-
-                    <div class="project-info">
-                        <h3>Cybercision</h3>
-                        <p>
-                            Released on Itch.io
-                        </p>
-                        <p>
-                            Visual novel made in Unity. I wrote the dialogue system which allowed writers to easily add new levels, dialogue and story branches.
-                            Features over 1000 lines of dialogue and four different minigames.
-                        </p>
-                        <a target="_blank" href="https://engineereng.itch.io/cybercision">Check It Out</a>
-                    </div>
-                </div>
-
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <!--<img style="width: 320px;height: 330px" src="images/raytracer.png"/> -->
-                        <div class="video-crop">
-                            <video style="margin-left: -135px;height: 330px;" autoplay muted loop>
-                                <source src="images/mmo.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-
-                    <div class="project-info">
-                        <h3>MMO Forge</h3>
-                        <p>
-                            Last updated January 2023
-                        </p>
-                        <p>
-                            MMORPG game engine written in Java with LibGDX. 
-                            All game content is defined separately from game logic allowing designers to easily create
-                            new items, spells, npcs, quests and more.
-                        </p>
-                        <a target="_blank" href="https://youtu.be/_xUkx4NgO4E">Video Demo</a>
-                    </div>
-                </div>
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <!--<img style="width: 320px;height: 330px" src="images/raytracer.png"/> -->
-                        <div class="video-crop">
-                            <img style="height: 330px" src="images/multitale_screenshot.jpg" />
-                        </div>
-                    </div>
-
-                    <div class="project-info">
-                        <img class="project-logo" src="images/multitale.png" />
-                        <p>
-                            Published on GameJolts in 2016.
-                        </p>
-                        <p>
-                            My own implementation of the Undertale fight system with additional multiplayer features.
-                            The player can face off against popular Undertale characters with their friends.
-                            Written in Java with Slick2D.
-                        </p>
-
-                        <a target="_blank"
-                            href="https://youtu.be/ZvMw001-cTI">Trailer</a>
-                        <br>
-                        <a target="_blank"
-                            href="https://gamejolt.com/games/multitale-multiplayer-undertale/163460">GameJolts Post</a>
-                    </div>
-
-                </div>
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <img style="width: 320px;height: 330px" src="images/cube_engine.png" />
-                        <!--<div class="video-crop">
-                            <video style="margin-left: 0px;height: 330px;" autoplay muted loop>
-                                <source src="images/engine.mp4" type="video/mp4">
-                            </video>
-                        </div>-->
-                    </div>
-
-                    <div class="project-info">
-                        <h3>Voxel Engine</h3>
-                        <p>
-                            Last updated October 24th, 2021
-                        </p>
-                        <p>
-                            3D voxel engine written in Java with OpenGL.
-                            Infinite terrain is procedurally generated using Voronoi Diagrams and Perlin Noise.
-                            Supports SSAO using Deferred Rendering.
-                        </p>
-
-                        <a target="_blank" href="https://github.com/tylerhasman/CubeEngine">Source Code</a>
-                    </div>
-
-                </div>
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <!-- <img style="width: 320px;height: 330px" src="images/ragnaros.png"/> -->
-                        <div class="video-crop">
-                            <video style="margin-left: 0px;height: 330px;" autoplay muted loop>
-                                <source src="images/animated_voxel_art.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-
-                    <div class="project-info">
-                        <h3>Voxel Art Converter</h3>
-                        <p>
-                            Not Yet Published
-                        </p>
-                        <p>
-                            Tool created in Java with LibGDX and GLSL that converts any 3d model into voxel art.
-                            Supports animations and exporting to the OBJ model format.
-                        </p>
-                    </div>
-
-                </div>
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <!--<img style="width: 320px;height: 330px" src="images/raytracer.png"/> -->
-                        <div class="video-crop">
-                            <video style="margin-left: 0px;height: 330px;" autoplay muted loop>
-                                <source src="images/raytracer.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-
-                    <div class="project-info">
-                        <h3>Raytracer</h3>
-                        <p>
-                            Last updated September 12th, 2019
-                        </p>
-                        <p>
-                            3D raytracing engine written in Java using Swing.
-                            Supports texturing and raytraced lighting.
-                        </p>
-                        <a target="_blank" href="https://github.com/tylerhasman/raytracer">Source Code</a>
-                    </div>
-
-                </div>
-
-                <!-- View More Link WIP! -->
-                <!--<a target="_blank" href="projects.html">View More</a> -->
-
-                <!-- End .project -->
             </div>
         </div>
-    </div>
+    </section>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/scripts.min.js"></script>
+    <!-- PERSONAL PROJECTS -->
+    <section id="projects">
+        <div class="section-inner">
+            <span class="section-label">Projects</span>
+            <h2 class="section-title">Personal Work</h2>
+            <p class="section-desc">Side projects, games, and experiments built for fun and learning.</p>
+            <div class="projects-grid">
+
+                <!-- Wizards -->
+                <div class="capsule">
+                    <div class="capsule-media">
+                        <video autoplay muted loop playsinline>
+                            <source src="images/wizards_preview.mp4" type="video/mp4">
+                        </video>
+                        <div class="capsule-logo">
+                            <img src="images/wizards_logo.png" alt="Wizards" />
+                        </div>
+                    </div>
+                    <div class="capsule-body">
+                        <h3>Wizards</h3>
+                        <div class="capsule-meta">Released on Steam &middot; January 15, 2021</div>
+                        <p>Online turn-based strategy game. Uses MySQL and Redis for backend with dedicated game servers for easy multiplayer.</p>
+                        <div class="capsule-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">LibGDX</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Redis</span>
+                        </div>
+                        <div class="capsule-links">
+                            <a class="capsule-link" href="https://playwizards.net" target="_blank">Play</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eggly Buddies -->
+                <div class="capsule">
+                    <div class="capsule-media">
+                        <video autoplay muted loop playsinline>
+                            <source src="images/Eggly.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="capsule-body">
+                        <h3>Eggly Buddies</h3>
+                        <div class="capsule-meta">UBC CPSC 427 &middot; Video Game Programming</div>
+                        <p>Tamagotchi-inspired virtual pet game. Created for the Video Game Programming course at UBC.</p>
+                        <div class="capsule-tags">
+                            <span class="tag">C++</span>
+                            <span class="tag">SDL</span>
+                        </div>
+                        <div class="capsule-links">
+                            <a class="capsule-link" href="https://www.youtube.com/watch?v=V4XIK4Y5kTI" target="_blank">Trailer</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cybercision -->
+                <div class="capsule">
+                    <div class="capsule-media">
+                        <video autoplay muted loop playsinline>
+                            <source src="images/cyber.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="capsule-body">
+                        <h3>Cybercision</h3>
+                        <div class="capsule-meta">Released on Itch.io</div>
+                        <p>Visual novel with a custom dialogue system enabling easy story branching. Features 1000+ lines of dialogue and four minigames.</p>
+                        <div class="capsule-tags">
+                            <span class="tag">Unity</span>
+                            <span class="tag">C#</span>
+                        </div>
+                        <div class="capsule-links">
+                            <a class="capsule-link" href="https://engineereng.itch.io/cybercision" target="_blank">Play</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MMO Forge -->
+                <div class="capsule">
+                    <div class="capsule-media">
+                        <video autoplay muted loop playsinline>
+                            <source src="images/mmo.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="capsule-body">
+                        <h3>MMO Forge</h3>
+                        <div class="capsule-meta">Last updated January 2023</div>
+                        <p>MMORPG engine with data-driven design — items, spells, NPCs, and quests all defined separately from game logic.</p>
+                        <div class="capsule-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">LibGDX</span>
+                        </div>
+                        <div class="capsule-links">
+                            <a class="capsule-link" href="https://youtu.be/_xUkx4NgO4E" target="_blank">Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Multitale -->
+                <div class="capsule">
+                    <div class="capsule-media">
+                        <img src="images/multitale_screenshot.jpg" alt="Multitale" />
+                        <div class="capsule-logo">
+                            <img src="images/multitale.png" alt="Multitale" />
+                        </div>
+                    </div>
+                    <div class="capsule-body">
+                        <h3>Multitale</h3>
+                        <div class="capsule-meta">Published on GameJolt &middot; 2016</div>
+                        <p>Undertale fight system rebuilt with online multiplayer. Face off against iconic characters with friends.</p>
+                        <div class="capsule-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Slick2D</span>
+                        </div>
+                        <div class="capsule-links">
+                            <a class="capsule-link" href="https://youtu.be/ZvMw001-cTI" target="_blank">Trailer</a>
+                            <a class="capsule-link" href="https://gamejolt.com/games/multitale-multiplayer-undertale/163460" target="_blank">GameJolt</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Voxel Engine -->
+                <div class="capsule">
+                    <div class="capsule-media">
+                        <img src="images/cube_engine.png" alt="Voxel Engine" />
+                    </div>
+                    <div class="capsule-body">
+                        <h3>Voxel Engine</h3>
+                        <div class="capsule-meta">Last updated October 2021</div>
+                        <p>3D voxel engine with infinite procedural terrain via Voronoi Diagrams and Perlin Noise. SSAO via Deferred Rendering.</p>
+                        <div class="capsule-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">OpenGL</span>
+                            <span class="tag">GLSL</span>
+                        </div>
+                        <div class="capsule-links">
+                            <a class="capsule-link" href="https://github.com/tylerhasman/CubeEngine" target="_blank">Source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Voxel Art Converter -->
+                <div class="capsule">
+                    <div class="capsule-media">
+                        <video autoplay muted loop playsinline>
+                            <source src="images/animated_voxel_art.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="capsule-body">
+                        <h3>Voxel Art Converter</h3>
+                        <div class="capsule-meta">Not yet published</div>
+                        <p>Converts any 3D model into voxel art. Supports animations and exports to OBJ format.</p>
+                        <div class="capsule-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">LibGDX</span>
+                            <span class="tag">GLSL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Raytracer -->
+                <div class="capsule">
+                    <div class="capsule-media">
+                        <video autoplay muted loop playsinline>
+                            <source src="images/raytracer.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="capsule-body">
+                        <h3>Raytracer</h3>
+                        <div class="capsule-meta">Last updated September 2019</div>
+                        <p>3D raytracing engine built from scratch with texturing and raytraced lighting.</p>
+                        <div class="capsule-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Swing</span>
+                        </div>
+                        <div class="capsule-links">
+                            <a class="capsule-link" href="https://github.com/tylerhasman/raytracer" target="_blank">Source</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://github.com/tylerhasman" target="_blank">GitHub</a>
+            <a href="mailto:tylerhasman10@hotmail.com">Email</a>
+            <a href="files/Resume.pdf" target="_blank">Resume</a>
+        </div>
+        <p>Tyler Hasman &copy; 2024</p>
+    </footer>
+
 </body>
-
 </html>
