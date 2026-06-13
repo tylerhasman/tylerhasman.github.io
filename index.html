@@ -4,27 +4,27 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tyler Hasman</title>
+    <title>Tyler Hasman — Game Developer</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --bg: #08090e;
-            --surface: #0f1117;
-            --surface-2: #161b27;
-            --surface-3: #1e2435;
-            --border: rgba(255,255,255,0.07);
-            --border-hover: rgba(255,255,255,0.15);
-            --accent: #4f8ef5;
-            --accent-glow: rgba(79,142,245,0.12);
-            --gold: #f0c040;
-            --gold-glow: rgba(240,192,64,0.12);
-            --text: #e8eaf0;
-            --text-muted: #8892a4;
-            --text-dim: #404858;
-            --radius: 16px;
+            --bg: #08090c;
+            --surface: #0d0f16;
+            --surface-2: #13161f;
+            --surface-3: #1a1d28;
+            --border: rgba(255,255,255,0.06);
+            --border-hover: rgba(255,255,255,0.13);
+            --amber: #f0a030;
+            --amber-dim: rgba(240,160,48,0.1);
+            --blue: #5090f0;
+            --blue-dim: rgba(80,144,240,0.1);
+            --text: #eeeef8;
+            --text-muted: #7070a0;
+            --text-dim: #32344a;
+            --radius: 14px;
             --radius-sm: 8px;
         }
 
@@ -46,274 +46,282 @@
             justify-content: center;
             padding: 16px;
         }
-        .nav-pills {
+        .nav-inner {
             display: flex;
             gap: 2px;
-            background: rgba(15,17,23,0.85);
+            background: rgba(13,15,22,0.88);
             border: 1px solid var(--border);
             border-radius: 50px;
             padding: 5px;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
         }
-        .nav-pills a {
+        .nav-inner a {
             color: var(--text-muted);
             text-decoration: none;
             padding: 6px 18px;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.84rem;
             font-weight: 500;
-            transition: all 0.2s;
+            letter-spacing: 0.01em;
+            transition: all 0.18s;
         }
-        .nav-pills a:hover {
-            color: var(--text);
-            background: rgba(255,255,255,0.07);
-        }
+        .nav-inner a:hover { color: var(--text); background: rgba(255,255,255,0.06); }
 
         /* ── HERO ── */
         #hero {
+            position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            position: relative;
             overflow: hidden;
-            padding: 100px 20px 80px;
+            padding: 120px 24px 100px;
         }
-        #hero::before {
-            content: '';
+        .hero-bg {
             position: absolute;
             inset: 0;
+            z-index: 0;
             background:
-                radial-gradient(ellipse 90% 60% at 50% -10%, rgba(79,142,245,0.14) 0%, transparent 60%),
-                radial-gradient(ellipse 50% 40% at 15% 80%, rgba(139,92,246,0.07) 0%, transparent 50%),
-                radial-gradient(ellipse 50% 40% at 85% 90%, rgba(79,142,245,0.05) 0%, transparent 50%);
-            pointer-events: none;
+                radial-gradient(ellipse 100% 70% at 50% 0%, rgba(240,160,48,0.07) 0%, transparent 55%),
+                radial-gradient(ellipse 60% 50% at 10% 80%, rgba(80,144,240,0.05) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 50% at 90% 80%, rgba(80,144,240,0.04) 0%, transparent 50%);
         }
-        #hero::after {
-            content: '';
+        .hero-bg-overlay {
             position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 200px;
-            background: linear-gradient(to bottom, transparent, var(--surface));
-            pointer-events: none;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 60%, var(--bg) 100%);
         }
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 760px;
+            max-width: 1120px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 72px;
+            align-items: center;
+        }
+        .hero-text { text-align: left; }
+        .hero-eyebrow {
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 16px;
+            opacity: 0.9;
         }
         .hero-content h1 {
-            font-size: clamp(3.5rem, 9vw, 6.5rem);
+            font-size: clamp(2.8rem, 6vw, 4.8rem);
             font-weight: 900;
             letter-spacing: -0.04em;
-            line-height: 1;
+            line-height: 0.95;
             color: var(--text);
             margin-bottom: 20px;
         }
-        .hero-content h1 .accent { color: var(--accent); }
-        .hero-content h2 {
-            font-size: clamp(1rem, 2.5vw, 1.35rem);
-            font-weight: 400;
+        .hero-about {
             color: var(--text-muted);
-            margin-bottom: 48px;
-            letter-spacing: -0.01em;
+            font-size: 0.97rem;
+            line-height: 1.78;
+            margin-bottom: 32px;
         }
+        .hero-about a { color: var(--amber); text-decoration: none; }
+        .hero-about a:hover { text-decoration: underline; }
+        .hero-about strong { color: var(--text); font-weight: 600; }
         .hero-links {
             display: flex;
             gap: 10px;
-            justify-content: center;
             flex-wrap: wrap;
+        }
+        .hero-photo-wrap { position: relative; }
+        .hero-photo {
+            width: 100%;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            display: block;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
         }
         .hero-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 11px 24px;
+            padding: 10px 22px;
             border-radius: 50px;
-            font-size: 0.88rem;
+            font-size: 0.86rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.2s;
             letter-spacing: -0.01em;
         }
-        .hero-link img { width: 16px; height: 16px; object-fit: contain; }
+        .hero-link img { width: 15px; height: 15px; object-fit: contain; }
         .hero-link.primary {
-            background: var(--accent);
-            color: #fff;
-            box-shadow: 0 0 0 0 rgba(79,142,245,0);
+            background: var(--amber);
+            color: #09090c;
         }
-        .hero-link.primary img { filter: brightness(0) invert(1); }
-        .hero-link.primary:hover {
-            background: #6ba3f7;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(79,142,245,0.3);
-        }
+        .hero-link.primary img { filter: brightness(0); }
+        .hero-link.primary:hover { background: #ffb84a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(240,160,48,0.35); }
         .hero-link.secondary {
-            background: var(--surface-2);
+            background: rgba(255,255,255,0.07);
             color: var(--text);
-            border: 1px solid var(--border);
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
         }
-        .hero-link.secondary img { filter: brightness(0) invert(0.7); }
-        .hero-link.secondary:hover {
-            background: var(--surface-3);
-            border-color: var(--border-hover);
-            transform: translateY(-2px);
+        .hero-link.secondary img { filter: brightness(0) invert(0.75); }
+        .hero-link.secondary:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.18); transform: translateY(-2px); }
+        .hero-scroll {
+            position: absolute;
+            bottom: 36px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            color: rgba(255,255,255,0.25);
+            font-size: 0.72rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .hero-scroll::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 36px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent);
+            animation: scrollLine 2s ease-in-out infinite;
+        }
+        @keyframes scrollLine {
+            0%, 100% { opacity: 0.4; transform: scaleY(1); }
+            50% { opacity: 1; transform: scaleY(1.2); }
         }
 
-        /* ── SECTION COMMON ── */
-        section { padding: 100px 24px; }
-        .section-inner { max-width: 1120px; margin: 0 auto; }
+        /* ── SHARED SECTION ── */
+        section { padding: 96px 24px; }
+        .inner { max-width: 1120px; margin: 0 auto; }
         .section-label {
-            display: inline-block;
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-weight: 700;
-            letter-spacing: 0.14em;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 10px;
+            color: var(--amber);
+            margin-bottom: 8px;
+            display: block;
         }
         .section-title {
             font-size: clamp(1.8rem, 4vw, 2.6rem);
             font-weight: 800;
             letter-spacing: -0.03em;
+            line-height: 1.05;
             color: var(--text);
-            margin-bottom: 12px;
-            line-height: 1.1;
+            margin-bottom: 10px;
         }
-        .section-desc {
+        .section-sub {
             color: var(--text-muted);
-            font-size: 0.97rem;
+            font-size: 0.95rem;
             max-width: 520px;
-            margin-bottom: 56px;
+            margin-bottom: 52px;
             line-height: 1.65;
         }
 
-        /* ── ABOUT ── */
-        #about {
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-        .about-grid {
-            display: grid;
-            grid-template-columns: 260px 1fr;
-            gap: 64px;
-            align-items: start;
-        }
-        .about-visual {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        .about-photo {
-            width: 100%;
-            border-radius: var(--radius);
-            display: block;
-            border: 1px solid var(--border);
-        }
-        .about-text .section-label { display: block; }
-        .about-text p {
-            color: var(--text-muted);
-            margin-bottom: 18px;
-            line-height: 1.8;
-            font-size: 0.97rem;
-        }
-        .about-text p:last-child { margin-bottom: 0; }
-        .about-text a { color: var(--accent); text-decoration: none; }
-        .about-text a:hover { text-decoration: underline; }
-        .about-text strong { color: var(--text); font-weight: 600; }
-
-        /* ── PROFESSIONAL ── */
-        #professional { background: var(--bg); }
-        .pro-grid {
+        /* ── PROFESSIONAL CREDITS ── */
+        #credits { background: var(--bg); }
+        .credits-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
+            gap: 20px;
         }
-        .pro-card {
+        .credit-card {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--radius);
             overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.2,0,0,1);
         }
-        .pro-card:hover {
+        .credit-card:hover {
             border-color: var(--border-hover);
-            transform: translateY(-4px);
-            box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 28px 72px rgba(0,0,0,0.65);
         }
-        .pro-banner {
-            height: 200px;
+        .credit-banner {
+            height: 360px;
+            position: relative;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 36px;
-            position: relative;
-            overflow: hidden;
         }
-        .pro-banner.squad-banner {
-            background: url('images/squad_background.jpg') center/cover no-repeat;
+        .credit-banner-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s cubic-bezier(0.2,0,0,1);
         }
-        .pro-banner.squad-banner::before {
+        .credit-card:hover .credit-banner-bg { transform: scale(1.04); }
+        .credit-banner::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(0,0,0,0.45);
-        }
-        .pro-banner.wow-banner {
-            background: url('images/wow_classic_background.webp') center/cover no-repeat;
-        }
-        .pro-banner.wow-banner::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.45);
-        }
-        .pro-banner img {
-            max-height: 120px;
-            max-width: 80%;
-            object-fit: contain;
-            position: relative;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 50%, rgba(13,15,22,1) 100%);
             z-index: 1;
-            filter: drop-shadow(0 4px 24px rgba(0,0,0,0.8));
+            pointer-events: none;
         }
-        .pro-company-bar {
+        .credit-banner-logo {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 40px;
+            /* Push logo toward upper-center, not bottom */
+            margin-bottom: 80px;
+        }
+        .credit-banner-logo img {
+            max-width: 75%;
+            max-height: 130px;
+            object-fit: contain;
+            filter: drop-shadow(0 6px 32px rgba(0,0,0,0.85));
+        }
+        .credit-body {
+            padding: 28px 32px 32px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .credit-meta {
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 14px 28px;
-            background: var(--surface-2);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
         }
-        .pro-company-bar img {
-            height: 20px;
+        .credit-meta img {
+            height: 18px;
             width: auto;
             object-fit: contain;
-            filter: brightness(0) invert(0.6);
+            filter: brightness(0) invert(0.5);
         }
-        .pro-company-name {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
-        .pro-body { padding: 28px; }
-        .pro-body h3 {
-            font-size: 1.3rem;
+        .credit-company {
+            font-size: 0.72rem;
             font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .credit-body h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
             color: var(--text);
-            margin-bottom: 12px;
             letter-spacing: -0.02em;
         }
-        .pro-body p {
+        .credit-body p {
             color: var(--text-muted);
             font-size: 0.9rem;
             line-height: 1.7;
-            margin-bottom: 20px;
         }
         .chips {
             display: flex;
@@ -322,32 +330,33 @@
         }
         .chip {
             display: inline-block;
-            padding: 4px 11px;
+            padding: 4px 12px;
             border-radius: 50px;
-            font-size: 0.72rem;
+            font-size: 0.71rem;
             font-weight: 600;
             letter-spacing: 0.02em;
         }
-        .chip-blue {
-            background: rgba(79,142,245,0.1);
-            border: 1px solid rgba(79,142,245,0.22);
-            color: #7aabf8;
+        .chip-amber {
+            background: var(--amber-dim);
+            border: 1px solid rgba(240,160,48,0.2);
+            color: var(--amber);
         }
-        .chip-gold {
-            background: rgba(240,192,64,0.1);
-            border: 1px solid rgba(240,192,64,0.22);
-            color: var(--gold);
+        .chip-blue {
+            background: var(--blue-dim);
+            border: 1px solid rgba(80,144,240,0.2);
+            color: #7ab0f8;
         }
 
-        /* ── PROJECTS ── */
+        /* ── PERSONAL PROJECTS ── */
         #projects {
             background: var(--surface);
             border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
+            gap: 16px;
         }
         .capsule {
             background: var(--surface-2);
@@ -356,23 +365,44 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+            transition: all 0.25s cubic-bezier(0.2,0,0,1);
         }
         .capsule:hover {
             border-color: var(--border-hover);
             transform: translateY(-4px);
-            box-shadow: 0 20px 52px rgba(0,0,0,0.55);
+            box-shadow: 0 18px 50px rgba(0,0,0,0.6);
         }
         .capsule:hover .capsule-media video,
         .capsule:hover .capsule-media img {
-            transform: scale(1.04);
+            transform: scale(1.05);
         }
         .capsule-media {
-            height: 190px;
+            height: 185px;
             overflow: hidden;
             position: relative;
             background: #06070d;
             flex-shrink: 0;
+        }
+        .capsule-media::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 28px; height: 28px;
+            border: 2px solid rgba(255,255,255,0.08);
+            border-top-color: var(--amber);
+            border-radius: 50%;
+            animation: spin 0.75s linear infinite;
+            z-index: 3;
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+        .capsule-media.loaded::before {
+            opacity: 0;
+            animation: none;
+        }
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
         }
         .capsule-media video,
         .capsule-media img {
@@ -380,58 +410,63 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.5s cubic-bezier(0.2, 0, 0, 1);
+            opacity: 0;
+            transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.2,0,0,1);
         }
-        .capsule-logo {
+        .capsule-media.loaded video,
+        .capsule-media.loaded img {
+            opacity: 1;
+        }
+        .capsule-logo-pin {
             position: absolute;
             bottom: 10px;
             left: 10px;
             z-index: 2;
         }
-        .capsule-logo img {
-            height: 32px;
+        .capsule-logo-pin img {
+            height: 30px;
             width: auto;
             object-fit: contain;
-            filter: drop-shadow(0 2px 10px rgba(0,0,0,0.9));
+            filter: drop-shadow(0 2px 10px rgba(0,0,0,0.95));
         }
         .capsule-body {
-            padding: 18px 20px 20px;
+            padding: 16px 18px 18px;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
         .capsule-body h3 {
-            font-size: 0.98rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: var(--text);
-            margin-bottom: 4px;
+            margin-bottom: 3px;
             letter-spacing: -0.01em;
         }
         .capsule-meta {
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             color: var(--text-dim);
-            margin-bottom: 10px;
+            margin-bottom: 9px;
             font-weight: 500;
         }
         .capsule-body p {
-            font-size: 0.83rem;
+            font-size: 0.82rem;
             color: var(--text-muted);
-            line-height: 1.65;
+            line-height: 1.6;
             flex: 1;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
         .capsule-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 4px;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
         .tag {
             padding: 2px 7px;
             background: var(--surface-3);
             border: 1px solid var(--border);
             border-radius: 4px;
-            font-size: 0.67rem;
+            font-size: 0.65rem;
             font-weight: 700;
             color: var(--text-dim);
             text-transform: uppercase;
@@ -447,65 +482,83 @@
             align-items: center;
             padding: 5px 13px;
             border-radius: 6px;
-            font-size: 0.77rem;
+            font-size: 0.76rem;
             font-weight: 600;
             text-decoration: none;
             background: var(--surface-3);
             color: var(--text-muted);
             border: 1px solid var(--border);
             transition: all 0.15s;
-            letter-spacing: -0.01em;
         }
         .capsule-link:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: #fff;
+            background: var(--amber);
+            border-color: var(--amber);
+            color: #09090c;
         }
+
+        /* ── ABOUT ── */
+        #about { background: var(--bg); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 56px;
+            align-items: start;
+        }
+        .about-photo {
+            width: 100%;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            display: block;
+        }
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .about-text p:last-child { margin-bottom: 0; }
+        .about-text a { color: var(--amber); text-decoration: none; }
+        .about-text a:hover { text-decoration: underline; }
+        .about-text strong { color: var(--text); font-weight: 600; }
 
         /* ── FOOTER ── */
         footer {
-            background: var(--bg);
+            background: var(--surface);
             border-top: 1px solid var(--border);
-            padding: 40px 24px;
+            padding: 36px 24px;
             text-align: center;
         }
         .footer-links {
             display: flex;
             gap: 24px;
             justify-content: center;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
         .footer-links a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.84rem;
             font-weight: 500;
             transition: color 0.15s;
         }
-        .footer-links a:hover { color: var(--accent); }
-        footer p {
-            color: var(--text-dim);
-            font-size: 0.8rem;
-        }
+        .footer-links a:hover { color: var(--amber); }
+        footer p { color: var(--text-dim); font-size: 0.78rem; }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
             .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-content { grid-template-columns: 1fr 240px; gap: 48px; }
         }
         @media (max-width: 768px) {
-            .pro-grid { grid-template-columns: 1fr; }
-            .about-grid { grid-template-columns: 1fr; gap: 36px; }
-            .about-visual { flex-direction: row; align-items: flex-start; }
-            .about-photo { max-width: 180px; }
-            .about-gif-wrap { flex: 1; }
+            .credits-grid { grid-template-columns: 1fr; }
+            .credit-banner { height: 280px; }
+            .hero-content { grid-template-columns: 1fr; gap: 36px; }
+            .hero-photo-wrap { max-width: 220px; order: -1; }
+            .hero-text { text-align: left; }
             section { padding: 72px 18px; }
         }
         @media (max-width: 600px) {
             .projects-grid { grid-template-columns: 1fr; }
-            .about-visual { flex-direction: column; }
-            .about-photo { max-width: 100%; }
-            .nav-pills a { padding: 5px 12px; font-size: 0.8rem; }
-            .hero-link { padding: 9px 18px; font-size: 0.83rem; }
         }
     </style>
 </head>
@@ -513,112 +566,103 @@
 <body>
 
     <nav>
-        <div class="nav-pills">
-            <a href="#about">About</a>
-            <a href="#professional">Work</a>
+        <div class="nav-inner">
+            <a href="#hero">Home</a>
+            <a href="#credits">Credits</a>
             <a href="#projects">Projects</a>
         </div>
     </nav>
 
     <!-- HERO -->
     <section id="hero">
+        <div class="hero-bg">
+            <div class="hero-bg-overlay"></div>
+        </div>
         <div class="hero-content">
-            <h1>Tyler <span class="accent">Hasman</span></h1>
-            <h2>Computer Graphics &middot; Game Development &middot; Engine Creation</h2>
-            <div class="hero-links">
-                <a class="hero-link primary" href="https://github.com/tylerhasman" target="_blank">
-                    <img src="images/github.png" alt=""> GitHub
-                </a>
-                <a class="hero-link secondary" href="mailto:tylerhasman10@hotmail.com">
-                    <img src="images/email.png" alt=""> Email
-                </a>
-                <a class="hero-link secondary" href="files/Resume.pdf" target="_blank">
-                    <img src="images/resume.png" alt=""> Resume
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-        <div class="section-inner">
-            <div class="about-grid">
-                <div class="about-visual">
-                    <img class="about-photo" src="images/me.png" alt="Tyler Hasman" />
-                    <div class="about-gif-wrap">
-                        <a href="https://zedotagger.tumblr.com/post/119883300135/been-working-on-dark-souls-sprites-again-not" target="_blank">
-                            <img src="images/solaire.gif" alt="Solaire of Astora" />
-                        </a>
-                    </div>
+            <div class="hero-text">
+                <p class="hero-eyebrow">Game Developer</p>
+                <h1>Tyler</h1>
+                <div class="hero-about">
+                    <p>I'm a game developer focused on <strong>computer graphics</strong>, <strong>engine programming</strong>, and <strong>gameplay systems</strong>. I graduated from The University of British Columbia with a BSc in Computer Science in December 2023.</p>
+                    <p>Before university I took a gap year and lived in Kyoto, Japan for a year — just a short walk from <a href="https://www.japan-guide.com/e/e3915.html" target="_blank">Fushimi Inari</a>. </p>
+                    <p>Favorite games: <strong>Dark Souls</strong>, <strong>Persona 5</strong>, <strong>Skyrim</strong>, <strong>Portal 2</strong>, <strong>Undertale</strong>, <strong>WoW Classic</strong>.</p>
                 </div>
-                <div class="about-text">
-                    <span class="section-label">About Me</span>
-                    <h2 class="section-title">Hey, I'm Tyler</h2>
-                    <p>
-                        I graduated from The University of British Columbia with a Bachelor of Science in Computer Science in December 2023.
-                    </p>
-                    <p>
-                        I took a gap year after high school and lived in Kyoto, Japan for a year — just a short walk from <a href="https://www.japan-guide.com/e/e3915.html" target="_blank">Fushimi Inari</a>, the most visited tourist spot in the world. It gave me the time and space to figure out who I was and what I actually wanted, and I'm a big supporter of others doing the same.
-                    </p>
-                    <p>
-                        My main interests are <strong>computer graphics</strong>, <strong>game development</strong>, and <strong>game engine creation</strong>. My favorite games are Dark Souls, Persona 5, Skyrim, Portal 2, Undertale, and World of Warcraft Classic.
-                    </p>
+                <div class="hero-links">
+                    <a class="hero-link primary" href="#credits">Professional Work</a>
+                    <a class="hero-link secondary" href="https://github.com/tylerhasman" target="_blank">
+                        <img src="images/github.png" alt=""> GitHub
+                    </a>
+                    <a class="hero-link secondary" href="files/Resume.pdf" target="_blank">
+                        <img src="images/resume.png" alt=""> Resume
+                    </a>
                 </div>
             </div>
+            <div class="hero-photo-wrap">
+                <img class="hero-photo" src="images/me.png" alt="Tyler Hasman" />
+            </div>
         </div>
+        <div class="hero-scroll">Scroll</div>
     </section>
 
-    <!-- PROFESSIONAL WORK -->
-    <section id="professional">
-        <div class="section-inner">
-            <span class="section-label">Professional</span>
-            <h2 class="section-title">Industry Work</h2>
-            <p class="section-desc">Games I've had the privilege of working on professionally.</p>
-            <div class="pro-grid">
+    <!-- PROFESSIONAL CREDITS -->
+    <section id="credits">
+        <div class="inner">
+            <span class="section-label">Professional Credits</span>
+            <h2 class="section-title">Shipped Titles</h2>
+            <p class="section-sub">Games I have worked on professionally.</p>
+            <div class="credits-grid">
 
-                <!-- Squad -->
-                <div class="pro-card">
-                    <div class="pro-banner squad-banner">
-                        <img src="images/squad.png" alt="Squad" />
+                <!-- WoW Classic -->
+                <div class="credit-card">
+                    <div class="credit-banner">
+                        <div class="credit-banner-bg" style="background-image: url('images/wow_classic_background.webp');"></div>
+
+                        <div class="credit-banner-logo">
+                            <img src="images/wow_classic_logo.webp" alt="World of Warcraft Classic" />
+                        </div>
                     </div>
-                    <div class="pro-company-bar">
-                        <img src="images/offworld.png" alt="Offworld Industries" />
-                        <span class="pro-company-name">Offworld Industries</span>
-                    </div>
-                    <div class="pro-body">
-                        <h3>Squad</h3>
+                    <div class="credit-body">
+                        <div class="credit-meta">
+                            <img src="images/blizzard.png" alt="Blizzard Entertainment" />
+                            <span class="credit-company">Blizzard Entertainment</span>
+                        </div>
+                        <h3>World of Warcraft Classic</h3>
                         <p>
-                            A large-scale tactical military FPS built around teamwork, communication, and realistic combined-arms combat. Contributed to gameplay systems and tooling for this hardcore mil-sim title.
+                            Worked across multiple releases of the WoW Classic line, spanning six major versions of this legendary MMORPG.
                         </p>
                         <div class="chips">
-                            <span class="chip chip-blue">Tactical FPS</span>
-                            <span class="chip chip-blue">Mil-Sim</span>
-                            <span class="chip chip-blue">Unreal Engine</span>
+                            <span class="chip chip-amber">Vanilla</span>
+                            <span class="chip chip-amber">The Burning Crusade</span>
+                            <span class="chip chip-amber">Wrath of the Lich King</span>
+                            <span class="chip chip-amber">Season of Discovery</span>
+                            <span class="chip chip-amber">Cataclysm Classic</span>
+                            <span class="chip chip-amber">Mists of Pandaria Classic</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- World of Warcraft Classic -->
-                <div class="pro-card">
-                    <div class="pro-banner wow-banner">
-                        <img src="images/World_of_Warcraft_Classic_logo.png" alt="World of Warcraft Classic" />
+                <!-- Squad -->
+                <div class="credit-card">
+                    <div class="credit-banner">
+                        <div class="credit-banner-bg" style="background-image: url('images/squad_background.jpg');"></div>
+
+                        <div class="credit-banner-logo">
+                            <img src="images/squad.png" alt="Squad" />
+                        </div>
                     </div>
-                    <div class="pro-company-bar">
-                        <img src="images/blizzard.png" alt="Blizzard Entertainment" />
-                        <span class="pro-company-name">Blizzard Entertainment</span>
-                    </div>
-                    <div class="pro-body">
-                        <h3>World of Warcraft Classic</h3>
+                    <div class="credit-body">
+                        <div class="credit-meta">
+                            <img src="images/offworld.png" alt="Offworld Industries" />
+                            <span class="credit-company">Offworld Industries</span>
+                        </div>
+                        <h3>Squad</h3>
                         <p>
-                            Worked across multiple releases of the beloved WoW Classic line, spanning six major versions of the game.
+                            Large-scale tactical military FPS built around teamwork, communication, and realistic combined-arms combat. Worked on gameplay systems and tooling for this hardcore mil-sim title.
                         </p>
                         <div class="chips">
-                            <span class="chip chip-gold">Vanilla</span>
-                            <span class="chip chip-gold">The Burning Crusade</span>
-                            <span class="chip chip-gold">Wrath of the Lich King</span>
-                            <span class="chip chip-gold">Season of Discovery</span>
-                            <span class="chip chip-gold">Cataclysm Classic</span>
-                            <span class="chip chip-gold">Mists of Pandaria Classic</span>
+                            <span class="chip chip-blue">Tactical FPS</span>
+                            <span class="chip chip-blue">Military Simulator</span>
+                            <span class="chip chip-blue">Unreal Engine</span>
                         </div>
                     </div>
                 </div>
@@ -629,10 +673,10 @@
 
     <!-- PERSONAL PROJECTS -->
     <section id="projects">
-        <div class="section-inner">
-            <span class="section-label">Projects</span>
-            <h2 class="section-title">Personal Work</h2>
-            <p class="section-desc">Side projects, games, and experiments built for fun and learning.</p>
+        <div class="inner">
+            <span class="section-label">Personal Work</span>
+            <h2 class="section-title">Side Projects</h2>
+            <p class="section-sub">Side projects, shipped indie games, and engine experiments built for fun and learning.</p>
             <div class="projects-grid">
 
                 <!-- Wizards -->
@@ -641,14 +685,14 @@
                         <video autoplay muted loop playsinline>
                             <source src="images/wizards_preview.mp4" type="video/mp4">
                         </video>
-                        <div class="capsule-logo">
+                        <div class="capsule-logo-pin">
                             <img src="images/wizards_logo.png" alt="Wizards" />
                         </div>
                     </div>
                     <div class="capsule-body">
                         <h3>Wizards</h3>
                         <div class="capsule-meta">Released on Steam &middot; January 15, 2021</div>
-                        <p>Online turn-based strategy game. Uses MySQL and Redis for backend with dedicated game servers for easy multiplayer.</p>
+                        <p>Online turn-based strategy game with dedicated game servers for easy multiplayer. MySQL + Redis backend.</p>
                         <div class="capsule-tags">
                             <span class="tag">Java</span>
                             <span class="tag">LibGDX</span>
@@ -671,7 +715,7 @@
                     <div class="capsule-body">
                         <h3>Eggly Buddies</h3>
                         <div class="capsule-meta">UBC CPSC 427 &middot; Video Game Programming</div>
-                        <p>Tamagotchi-inspired virtual pet game. Created for the Video Game Programming course at UBC.</p>
+                        <p>Tamagotchi-inspired virtual pet game. Built in C++ with SDL for the Video Game Programming course at UBC.</p>
                         <div class="capsule-tags">
                             <span class="tag">C++</span>
                             <span class="tag">SDL</span>
@@ -692,7 +736,7 @@
                     <div class="capsule-body">
                         <h3>Cybercision</h3>
                         <div class="capsule-meta">Released on Itch.io</div>
-                        <p>Visual novel with a custom dialogue system enabling easy story branching. Features 1000+ lines of dialogue and four minigames.</p>
+                        <p>Visual novel with a custom dialogue system supporting easy story branching. 1000+ lines of dialogue, four minigames.</p>
                         <div class="capsule-tags">
                             <span class="tag">Unity</span>
                             <span class="tag">C#</span>
@@ -713,7 +757,7 @@
                     <div class="capsule-body">
                         <h3>MMO Forge</h3>
                         <div class="capsule-meta">Last updated January 2023</div>
-                        <p>MMORPG engine with data-driven design — items, spells, NPCs, and quests all defined separately from game logic.</p>
+                        <p>MMORPG engine. Items, spells, NPCs, and quests all defined in data — completely separate from game logic.</p>
                         <div class="capsule-tags">
                             <span class="tag">Java</span>
                             <span class="tag">LibGDX</span>
@@ -728,7 +772,7 @@
                 <div class="capsule">
                     <div class="capsule-media">
                         <img src="images/multitale_screenshot.jpg" alt="Multitale" />
-                        <div class="capsule-logo">
+                        <div class="capsule-logo-pin">
                             <img src="images/multitale.png" alt="Multitale" />
                         </div>
                     </div>
@@ -777,7 +821,7 @@
                     <div class="capsule-body">
                         <h3>Voxel Art Converter</h3>
                         <div class="capsule-meta">Not yet published</div>
-                        <p>Converts any 3D model into voxel art. Supports animations and exports to OBJ format.</p>
+                        <p>Converts any 3D model into voxel art. Supports animations and OBJ export.</p>
                         <div class="capsule-tags">
                             <span class="tag">Java</span>
                             <span class="tag">LibGDX</span>
@@ -814,11 +858,25 @@
     <footer>
         <div class="footer-links">
             <a href="https://github.com/tylerhasman" target="_blank">GitHub</a>
-            <a href="mailto:tylerhasman10@hotmail.com">Email</a>
             <a href="files/Resume.pdf" target="_blank">Resume</a>
         </div>
         <p>Tyler Hasman &copy; 2024</p>
     </footer>
 
+    <script>
+        document.querySelectorAll('.capsule-media').forEach(wrap => {
+            const video = wrap.querySelector('video');
+            const img = wrap.querySelector('img:not(.capsule-logo-pin img)');
+            if (video) {
+                const done = () => wrap.classList.add('loaded');
+                if (video.readyState >= 3) { done(); return; }
+                video.addEventListener('loadeddata', done, { once: true });
+            } else if (img) {
+                const done = () => wrap.classList.add('loaded');
+                if (img.complete && img.naturalWidth) { done(); return; }
+                img.addEventListener('load', done, { once: true });
+            }
+        });
+    </script>
 </body>
 </html>
